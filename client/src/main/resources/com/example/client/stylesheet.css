@@ -1,0 +1,19 @@
+.inputField {
+    -fx-text-box-border: transparent;
+    -fx-background-color: #FFFFFF;
+}
+
+.combo-box {
+    -fx-border-color: transparent;
+    -fx-background-color: #dbdbdb;
+}
+
+.todoButton {
+    -fx-border-color: transparent;
+    -fx-background-color: transparent;
+}
+
+.projectButton {
+    -fx-border-color: transparent;
+    -fx-background-color: #dbdbdb;
+}

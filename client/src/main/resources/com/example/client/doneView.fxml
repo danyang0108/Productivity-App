@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.text.Font?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import org.kordamp.ikonli.javafx.StackedFontIcon?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+<?import java.net.URL?>
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.client.DoneController"
+            prefHeight="400.0" prefWidth="600.0">
+    <left>
+        <VBox prefHeight="360.0" prefWidth="167.0" style="-fx-background-color: ffffff;" BorderPane.alignment="CENTER">
+            <children>
+                <Button fx:id="createProjectBtn" mnemonicParsing="false" onAction="#showProjectPopup" styleClass="projectButton">
+                    <graphic>
+                        <StackedFontIcon>
+                            <children>
+                                <FontIcon iconColor="black" iconLiteral="bi-folder-plus" iconSize="15" selectionEnd="0"/>
+                            </children>
+                        </StackedFontIcon>
+                    </graphic>
+                    <VBox.margin>
+                        <Insets bottom="5.0" left="10.0" />
+                    </VBox.margin>
+                </Button>
+                <Button fx:id="DashboardViewBtn" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#switchToDashboard" prefHeight="26.0" prefWidth="168.0" style="-fx-background-color: ffffff;" text="Dashboard" textFill="#3f3f3f">
+                    <graphic>
+                        <StackedFontIcon>
+                            <children>
+                                <FontIcon iconColor="red" iconLiteral="bi-inbox" iconSize="15" selectionEnd="0"/>
+                            </children>
+                        </StackedFontIcon>
+                    </graphic>
+                    <padding>
+                        <Insets bottom="5.0" left="20.0" top="5.0" />
+                    </padding>
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                </Button>
+                <Button fx:id="UpcomingViewBtn" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#switchToUpcoming" prefHeight="26.0" prefWidth="168.0" style="-fx-background-color: ffffff;" text="Upcoming" textFill="#3f3f3f">
+                    <graphic>
+                        <StackedFontIcon>
+                            <children>
+                                <FontIcon iconColor="mediumpurple" iconLiteral="bi-view-list" iconSize="15" selectionEnd="0"/>
+                            </children>
+                        </StackedFontIcon>
+                    </graphic>
+                    <padding>
+                        <Insets bottom="5.0" left="20.0" top="5.0" />
+                    </padding>
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                </Button>
+                <Button fx:id="DoneViewBtn" alignment="BASELINE_LEFT" mnemonicParsing="false" prefHeight="26.0" prefWidth="168.0" style="-fx-background-color: ffffff;" text="Done" textFill="#3f3f3f">
+                    <graphic>
+                        <StackedFontIcon>
+                            <children>
+                                <FontIcon iconColor="forestgreen" iconLiteral="bi-check-all" iconSize="15" selectionEnd="0"/>
+                            </children>
+                        </StackedFontIcon>
+                    </graphic>
+                    <padding>
+                        <Insets bottom="5.0" left="20.0" top="5.0" />
+                    </padding>
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                </Button>
+                <Button fx:id="TagsViewBtn" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#switchToTag" prefHeight="26.0" prefWidth="168.0" style="-fx-background-color: ffffff;" text="Tags" textFill="#3f3f3f">
+                    <graphic>
+                        <StackedFontIcon>
+                            <children>
+                                <FontIcon iconColor="turquoise" iconLiteral="bi-bookmarks" iconSize="15" selectionEnd="0"/>
+                            </children>
+                        </StackedFontIcon>
+                    </graphic>
+                    <padding>
+                        <Insets bottom="5.0" left="20.0" top="5.0" />
+                    </padding>
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                </Button>
+                <Button fx:id="ProjectsViewBtn" alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#switchToProject" prefHeight="26.0" prefWidth="168.0" style="-fx-background-color: ffffff;" text="Projects" textFill="#3f3f3f">
+                    <graphic>
+                        <StackedFontIcon>
+                            <children>
+                                <FontIcon iconColor="darkorange" iconLiteral="bi-collection" iconSize="15" selectionEnd="0"/>
+                            </children>
+                        </StackedFontIcon>
+                    </graphic>
+                    <padding>
+                        <Insets bottom="5.0" left="20.0" top="5.0" />
+                    </padding>
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                </Button>
+                <!--                <ListView fx:id="projectsListView" items="${controller.projectBtnList}" prefHeight="200.0" prefWidth="200.0" />-->
+            </children>
+        </VBox>
+    </left>
+    <center>
+        <VBox BorderPane.alignment="CENTER">
+            <children>
+                <Label prefHeight="17.0" prefWidth="639.0" text="Done">
+                    <graphic>
+                        <StackedFontIcon>
+                            <children>
+                                <FontIcon iconColor="forestgreen" iconLiteral="bi-check-all" iconSize="18" selectionEnd="0"/>
+                            </children>
+                        </StackedFontIcon>
+                    </graphic>
+                    <font>
+                        <Font name="System Bold" size="22.0" />
+                    </font>
+                    <padding>
+                        <Insets left="10.0" bottom="10.0"/>
+                    </padding>
+                </Label>
+                <TableView prefHeight="800.0" items="${controller.done}">
+                    <columns>
+                        <TableColumn maxWidth="1.7976931348623157E308" minWidth="83.54864501953125" prefWidth="83.54864501953125" text="Task">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="task_title" />
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn maxWidth="1.7976931348623157E308" minWidth="83.54864501953125" prefWidth="83.54864501953125" text="Due">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="task_dueDisplay" />
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn maxWidth="1.7976931348623157E308" minWidth="100.6337890625" prefWidth="240.70663452148438" text="Description">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="task_description" />
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn maxWidth="1.7976931348623157E308" minWidth="50.6337890625" prefWidth="100.70663452148438" text="Project">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="task_projectDisplay" />
+                            </cellValueFactory>
+                        </TableColumn>
+                      <TableColumn maxWidth="1.7976931348623157E308" minWidth="50.6337890625" prefWidth="100.70663452148438" text="Tag">
+                        <cellValueFactory>
+                          <PropertyValueFactory property="task_tagsDisplay" />
+                        </cellValueFactory>
+                      </TableColumn>
+                    </columns>
+                    <placeholder>
+                        <Label text="No results found." />
+                    </placeholder>
+                </TableView>
+            </children>
+        </VBox>
+    </center>
+    <padding>
+        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+    </padding>
+    <stylesheets>
+        <URL value="@stylesheet.css"/>
+    </stylesheets>
+</BorderPane>
